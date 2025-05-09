@@ -1,0 +1,15 @@
+<%= form_with model: registration, url: registration_path do |form| %>
+<h1>Sign Up</h1>
+<div>
+<%= form.label :Name%><br>
+<%= form.text_field :name, placeholder: "Name"%><br>
+<%= form.label :email%><br>
+<%= form.text_field :email, placeholder: "Email"%><br>
+<%= form.label :password%><br>
+<%= form.text_field :password, placeholder: "Password"%><br>
+<%= form.label :password%><br>
+<%= form.text_field :confirm_password, placeholder: "Confirm Password"%><br>
+</div>
+<br>
+<%= form.submit "Create Account" %>
+<%end%>

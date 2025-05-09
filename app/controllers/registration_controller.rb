@@ -1,8 +1,19 @@
 class RegistrationController < ApplicationController
-  before_action :set_item
-  def new
+  def sign_in
   end
 
-  def signup
+  def new
+    @registration=Registration.new
   end
+
+  def create
+  end
+
+  def login
+  end
+
+  private
+def registration_parms
+  params.require(:registration).permit(:name, :email, :password)
+end
 end
