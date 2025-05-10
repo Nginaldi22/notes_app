@@ -17,6 +17,9 @@ jobs:
         with:
           ruby-version: 3.4.2
           bundler-cache: true
+          
+        name: Fix brakeman shebang
+        run: sed -i '1s/ruby\.exe/ruby/' bin/brakeman
 
       - name: Make bin/brakeman executable
         run: chmod +x bin/brakeman
