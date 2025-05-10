@@ -11,7 +11,7 @@ class RegistrationController < ApplicationController
   if @registration.save
     @registration.create_homepage(title: "Welcome #{@registration.name}!", description: "Your personal dashboard.")
     session[:user_id] = @registration.id
-    redirect_to homepage_show_path
+    redirect_to homepage_show_path(@registration.id)
   else
     render :new
   end
