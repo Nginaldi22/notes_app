@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_03_221050) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_10_170256) do
+  create_table "dashboards", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "registration_id", null: false
+    t.index ["registration_id"], name: "index_dashboards_on_registration_id"
+  end
+
+  create_table "homepages", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "registration_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["registration_id"], name: "index_homepages_on_registration_id"
+  end
+
   create_table "registrations", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -18,4 +35,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_221050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "dashboards", "registrations"
+  add_foreign_key "homepages", "registrations"
 end
