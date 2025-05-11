@@ -57,7 +57,7 @@ jobs:
 
       - name: Fix binstub shebangs
         run: |
-        find bin -type f | xargs sed -i '1s/ruby\.exe/ruby/'
+          find bin -type f | xargs sed -i '1s/ruby\.exe/ruby/'
 
       - name: Make binstubs executable
         run: chmod -R +x bin/
