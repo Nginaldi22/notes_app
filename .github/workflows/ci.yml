@@ -55,11 +55,12 @@ jobs:
           ruby-version: 3.4.2
           bundler-cache: true
 
-      - name: Fix brakeman shebang
-        run: sed -i '1s/ruby\.exe/ruby/' bin/brakeman
+      - name: Fix binstub shebangs
+        run: |
+        find bin -type f | xargs sed -i '1s/ruby\.exe/ruby/'
 
-      - name: Make bin/rubocop executable
-        run: chmod +x bin/rubocop
+      - name: Make binstubs executable
+        run: chmod -R +x bin/
 
       - name: Lint code for consistent style
         run: bin/rubocop -f github
