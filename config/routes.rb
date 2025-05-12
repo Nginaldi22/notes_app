@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "subject/new"
+  get "subject/create"
+  get "subject/show"
   get "sessions/controller"
   get "sessions/new"
   get "sessions/create"
