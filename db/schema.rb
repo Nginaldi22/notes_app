@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_12_215522) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_13_181759) do
   create_table "homepages", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -18,6 +18,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_12_215522) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["registration_id"], name: "index_homepages_on_registration_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "homepage_id", null: false
+    t.index ["homepage_id"], name: "index_notes_on_homepage_id"
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -28,14 +36,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_12_215522) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "subjects", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "homepage_id", null: false
-    t.index ["homepage_id"], name: "index_subjects_on_homepage_id"
-  end
-
   add_foreign_key "homepages", "registrations"
-  add_foreign_key "subjects", "homepages"
+  add_foreign_key "notes", "homepages"
 end

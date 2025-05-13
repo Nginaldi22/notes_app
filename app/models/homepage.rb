@@ -1,4 +1,4 @@
 class Homepage < ApplicationRecord
   belongs_to :registration
-  has_many :subjects, dependent: :destroy
+  has_many :notes, dependent: :destroy
 end
