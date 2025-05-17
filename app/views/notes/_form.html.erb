@@ -15,9 +15,8 @@
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
-  <%=current_user.homepage.id%>
   <div>
-    <%= form.hidden_field :homepage_id, value: current_user.homepage.id%> <!-- Hidden field for homepage_id -->
+    <%= form.hidden_field :homepage_id, value: current_user.homepage.id%> 
   </div>
   <div>
     <%= form.submit %>

@@ -1,5 +1,6 @@
 <h1><%= @homepage.title%></h1>
 <%@homepage.notes.each do |note|%>
-<%=note.title%><br>
+<%=link_to note.title, note%><br>
 <%end%>
+<strong>-------------------------------------------------------------------------------------</strong>
 <%= link_to "Make a Subject", new_note_path%>

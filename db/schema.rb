@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_13_181759) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_17_155003) do
+  create_table "flashcards", force: :cascade do |t|
+    t.string "title"
+    t.string "text"
+    t.integer "note_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_flashcards_on_note_id"
+  end
+
   create_table "homepages", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -36,6 +45,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_13_181759) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "flashcards", "notes"
   add_foreign_key "homepages", "registrations"
   add_foreign_key "notes", "homepages"
 end

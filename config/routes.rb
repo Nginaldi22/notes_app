@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :notes
+  resources :notes do
+    resources :flashcards, except: [ :index ]
+  end
   get "sessions/controller"
   get "sessions/new"
   get "sessions/create"

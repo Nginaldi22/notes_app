@@ -3,8 +3,7 @@
 <%= render @note %>
 
 <div>
-  <%= link_to "Edit this note", edit_note_path(@note) %> |
-  <%= link_to "Back to notes", notes_path %>
-
-  <%= button_to "Destroy this note", @note, method: :delete %>
+  <%= link_to "Edit name", edit_note_path(@note) %> |
+  <%= link_to "Back to homepage", homepage_show_path(current_user.id) %>
+  <%= button_to "Delete this subject", @note, method: :delete %>
 </div>
