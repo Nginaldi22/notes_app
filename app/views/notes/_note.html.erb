@@ -4,6 +4,10 @@
     <%= note.title %>
   </p>
   <div>Current Notes</div>
+  <%@note.flashcards.each do |flashcard|%>
+  <%=link_to flashcard.title, [@note,flashcard]%><br>
+  <%end%>
+  <%= link_to "New Note", new_note_flashcard_path(note) %><br>
   <strong>----------------------------------------------------------------------------------</strong>
   <div>Current Files</div>
 
