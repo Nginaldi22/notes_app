@@ -4,8 +4,27 @@
     <%= note.title %>
   </p>
   <div>Current Notes</div>
+  <%if @note.present?%>
+  <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope = "col">Note Name</th>
+            <th scope = "col">View content</th>
+            <th scope = "col">Edit content</th>
+            <th scope = "col">delete</th>
+            </tr>
+        </thead>
   <%@note.flashcards.each do |flashcard|%>
-  <%=link_to flashcard.title, [@note,flashcard]%><br>
+  </tbody>
+  <tr>
+            <th scope = "col"><%=flashcard.title%></th>
+            <th scope = "col"><%=link_to "view", [@note,flashcard]%></th>
+            <th scope = "col"><%=link_to "edit", edit_note_flashcard_path(@note,flashcard)%></th>
+            <th scope = "col"><%=button_to "delete", [@note,flashcard], method: :delete%></th>
+  </tr>
+  </tbody>
+  <%end%>
+  </table>
   <%end%>
   <%= link_to "New Note", new_note_flashcard_path(note) %><br>
   <strong>----------------------------------------------------------------------------------</strong>
