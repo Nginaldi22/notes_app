@@ -6,16 +6,16 @@
             <th scope = "col">Subject Name</th>
             <th scope = "col">View</th>
             <th scope = "col">Edit</th>
-            <th scope = "col">delete</th>
+            <th scope = "col">Delete</th>
             </tr>
         </thead>
 <%@homepage.notes.each do |note|%>
         <tbody>
             <tr>
             <th scope = "col"><%=note.title%></th>
-            <th scope = "col"><%=link_to "view", note%><br></th>
-            <th scope = "col"><%=link_to "edit", edit_note_path(note)%><br></th>
-            <th scope = "col"><%=button_to "delete", note, method: :delete%><br></th>
+            <th scope = "col"><%=link_to "See Notes", note%><br></th>
+            <th scope = "col"><%=link_to "Edit Subject", edit_note_path(note)%><br></th>
+            <th scope = "col"><%=button_to "Delete Subject ", note, method: :delete%><br></th>
             </tr>
         </tbody>
 <%end%>

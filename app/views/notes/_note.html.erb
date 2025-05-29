@@ -11,16 +11,16 @@
             <th scope = "col">Note Name</th>
             <th scope = "col">View content</th>
             <th scope = "col">Edit content</th>
-            <th scope = "col">delete</th>
+            <th scope = "col">Delete</th>
             </tr>
         </thead>
   <%@note.flashcards.each do |flashcard|%>
   </tbody>
   <tr>
             <th scope = "col"><%=flashcard.title%></th>
-            <th scope = "col"><%=link_to "view", [@note,flashcard]%></th>
-            <th scope = "col"><%=link_to "edit", edit_note_flashcard_path(@note,flashcard)%></th>
-            <th scope = "col"><%=button_to "delete", [@note,flashcard], method: :delete%></th>
+            <th scope = "col"><%=link_to "View", [@note,flashcard]%></th>
+            <th scope = "col"><%=link_to "Edit", edit_note_flashcard_path(@note,flashcard)%></th>
+            <th scope = "col"><%=button_to "Delete", [@note,flashcard], method: :delete%></th>
   </tr>
   </tbody>
   <%end%>
