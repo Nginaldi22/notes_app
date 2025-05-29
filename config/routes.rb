@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :notes, expect: [ :index ] do
+    resources :flashcards, except: [ :index ]
+  end
   get "sessions/controller"
   get "sessions/new"
   get "sessions/create"

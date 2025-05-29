@@ -1,3 +1,23 @@
-<h1>Homepage#show</h1>
-<p>Find me in app/views/homepage/show.html.erb</p>
-<%= @homepage.title%>
+<h1><%= @homepage.title%></h1>
+<h3>Your current subjects</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope = "col">Subject Name</th>
+            <th scope = "col">View</th>
+            <th scope = "col">Edit</th>
+            <th scope = "col">Delete</th>
+            </tr>
+        </thead>
+<%@homepage.notes.each do |note|%>
+        <tbody>
+            <tr>
+            <th scope = "col"><%=note.title%></th>
+            <th scope = "col"><%=link_to "See Notes", note%><br></th>
+            <th scope = "col"><%=link_to "Edit Subject", edit_note_path(note)%><br></th>
+            <th scope = "col"><%=button_to "Delete Subject ", note, method: :delete%><br></th>
+            </tr>
+        </tbody>
+<%end%>
+</table>
+<%= link_to "Make a Subject", new_note_path%>
