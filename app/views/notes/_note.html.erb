@@ -7,7 +7,7 @@
   <%if @note.present?%>
   <table class="table table-bordered">
     <thead>
-        <tr>
+        <tr class="table-dark">
             <th scope = "col">Note Name</th>
             <th scope = "col">View content</th>
             <th scope = "col">Edit content</th>
@@ -16,11 +16,11 @@
         </thead>
   <%@note.flashcards.each do |flashcard|%>
   </tbody>
-  <tr>
-            <th scope = "col"><%=flashcard.title%></th>
-            <th scope = "col"><%=link_to "View", [@note,flashcard]%></th>
-            <th scope = "col"><%=link_to "Edit", edit_note_flashcard_path(@note,flashcard)%></th>
-            <th scope = "col"><%=button_to "Delete", [@note,flashcard], method: :delete%></th>
+  <tr class="table-dark">
+            <th scope = "col" class="text-info"><%=flashcard.title%></th>
+            <th scope = "col"><%=link_to "View", [@note,flashcard], class: "text-info"%></th>
+            <th scope = "col"><%=link_to "Edit", edit_note_flashcard_path(@note,flashcard),class: "text-info"%></th>
+            <th scope = "col"><%=button_to "Delete", [@note,flashcard], method: :delete, class: "btn btn-outline-info",style: "color: white;"%></th>
   </tr>
   </tbody>
   <%end%>
