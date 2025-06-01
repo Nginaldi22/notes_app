@@ -2,8 +2,3 @@
 
 <%= render @note %>
 
-<div>
-  <%= link_to "Edit name", edit_note_path(@note) %> |
-  <%= link_to "Back to homepage", homepage_show_path(current_user.id) %>
-  <%= button_to "Delete this subject", @note, method: :delete %>
-</div>

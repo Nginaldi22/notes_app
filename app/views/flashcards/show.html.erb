@@ -1,3 +1,4 @@
-<%=@flashcard.title%><br>
-<%=@flashcard.text%><br>
-<%= link_to "edit", edit_note_flashcard_path( note: @note, flashcard: @flashcard)%>
+<div class="card my-4 p-4 shadow-sm" style="background-color: #4d5456;">
+  <h2 class="card-title mb-3 text-center" style= "color: white;"><%= @flashcard.title %></h2>
+  <p class="card-text" style="white-space: pre-wrap; color:white;"><%= @flashcard.text %></p>
+</div>
