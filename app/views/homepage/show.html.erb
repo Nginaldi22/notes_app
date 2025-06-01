@@ -2,7 +2,7 @@
 <h3>Your current subjects</h3>
 <table class="table table-bordered">
     <thead>
-        <tr>
+        <tr class="table-dark">
             <th scope = "col">Subject Name</th>
             <th scope = "col">View</th>
             <th scope = "col">Edit</th>
@@ -11,13 +11,13 @@
         </thead>
 <%@homepage.notes.each do |note|%>
         <tbody>
-            <tr>
+            <tr class="table-dark">
             <th scope = "col"><%=note.title%></th>
-            <th scope = "col"><%=link_to "See Notes", note%><br></th>
-            <th scope = "col"><%=link_to "Edit Subject", edit_note_path(note)%><br></th>
-            <th scope = "col"><%=button_to "Delete Subject ", note, method: :delete%><br></th>
+            <th scope = "col"><%=link_to "See Notes", note, class: "text-info"%><br></th>
+            <th scope = "col"><%=link_to "Edit Subject", edit_note_path(note), class: "text-info"%><br></th>
+            <th scope = "col"><%=button_to "Delete Subject ", note, method: :delete,class: "btn btn-outline-info",style: "color: white;"%><br></th>
             </tr>
         </tbody>
 <%end%>
 </table>
-<%= link_to "Make a Subject", new_note_path%>
+<%= link_to "Make a Subject", new_note_path,class: "btn btn-dark",style: "color: white;"%>

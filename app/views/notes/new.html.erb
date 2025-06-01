@@ -1,3 +1,5 @@
+<div class = center>
+  <div class = form>
 <% content_for :title, "New note" %>
 
 <h1>New note</h1>
@@ -7,5 +9,7 @@
 <br>
 
 <div>
-  <%= link_to "Back to notes", notes_path %>
+  <%= link_to "Back to notes", homepage_show_path(current_user.id) %>
+</div>
+</div>
 </div>

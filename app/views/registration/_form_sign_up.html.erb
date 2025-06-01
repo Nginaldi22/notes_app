@@ -1,3 +1,5 @@
+<div class = center>
+<div class = form>
 <%= form_with model: registration, url: registration_path do |form| %>
   <h1>Sign Up</h1>
 
@@ -6,7 +8,7 @@
     <%= form.text_field :name, placeholder: "Name" %><br>
 
     <%= form.label :email %><br>
-    <%= form.text_field :email, placeholder: "Email" %><br>
+    <%= form.text_field :email, placeholder: "Something@yada.blah" %><br>
 
     <%= form.label :password %><br>
     <%= form.password_field :password, placeholder: "Password" %><br>
@@ -16,5 +18,7 @@
   </div>
 
   <br>
-  <%= form.submit "Create Account" %>
+  <%= form.submit "Create Account", class: "btn btn-outline-info btn-lg", style: "color: white;" %>
 <% end %>
+</div>
+</div>
