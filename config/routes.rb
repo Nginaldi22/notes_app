@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   post "registration", to: "registration#create"
   get "homepage", to: "homepage#show"
   delete "logout", to: "sessions#destroy"
+  get "/check_email", to: "registration#check_email"
   get "up" => "rails/health#show", as: :rails_health_check
 end

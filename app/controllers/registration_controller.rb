@@ -27,6 +27,11 @@ class RegistrationController < ApplicationController
       redirect_to root_path, notice: "Invalid"
     end
   end
+  def check_email
+  email = params[:email].to_s.downcase
+  exists = Registration.exists?(email: email)
+  render json: { exists: exists }
+  end
 
   private
 def registration_parms

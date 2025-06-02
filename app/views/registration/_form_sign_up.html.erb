@@ -1,6 +1,6 @@
 <div class = center>
 <div class = form>
-<%= form_with model: registration, url: registration_path do |form| %>
+<%= form_with model: registration, url: registration_path, data: { validate: "signup" } do |form| %>
   <h1>Sign Up</h1>
 
   <div>
