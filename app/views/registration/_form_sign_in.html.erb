@@ -5,12 +5,12 @@
   <div>
     <%= form.label :email %><br>
     <div class="error-message text-danger" data-error-for="email"></div>
-    <%= form.text_field :email,class: "form-control", placeholder: "Something@yada.blah"%>
+    <%= form.text_field :email,class: "form-control", placeholder: "Something@yada.blah", class: "email-field"%>
     </div>
     <div>
     <%= form.label :password %><br>
     <div class="error-message text-danger" data-error-for="password"></div>
-    <%= form.password_field :password,class: "form-control", placeholder: "Password" %>
+    <%= form.password_field :password,class: "form-control", placeholder: "Password",class: "password-field" %>
   </div>
   <br>
   <%= form.submit "Sign In", class: "btn btn-outline-info btn-lg", style: "color: white;" %>
