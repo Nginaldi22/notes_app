@@ -1,20 +1,24 @@
 <div class = center>
 <div class = form>
-<%= form_with model: registration, url: registration_path do |form| %>
+<%= form_with model: registration, url: registration_path, data: { validate: "signup" } do |form| %>
   <h1>Sign Up</h1>
 
   <div>
     <%= form.label :name %><br>
-    <%= form.text_field :name, placeholder: "Name" %><br>
+    <div class="error-message text-danger" data-error-for="name"></div>
+    <%= form.text_field :name, placeholder: "Name", class: "name-field"%><br>
 
     <%= form.label :email %><br>
-    <%= form.text_field :email, placeholder: "Something@yada.blah" %><br>
+    <div class="error-message text-danger" data-error-for="email"></div>
+    <%= form.text_field :email, placeholder: "Something@yada.blah", class: "email-field"%><br>
 
     <%= form.label :password %><br>
-    <%= form.password_field :password, placeholder: "Password" %><br>
+    <div class="error-message text-danger" data-error-for="password"></div>
+    <%= form.password_field :password, placeholder: "Password",class: "password-field" %><br>
 
     <%= form.label :password_confirmation, "Confirm Password" %><br>
-    <%= form.password_field :password_confirmation, placeholder: "Confirm Password" %><br>
+    <div class="error-message text-danger" data-error-for="password_confirmation"></div>
+    <%= form.password_field :password_confirmation, placeholder: "Confirm Password",class: "password-confirmation-field"%><br>
   </div>
 
   <br>

@@ -1,12 +1,16 @@
 <div class = center>
 <div class = form>
 <h1>Sign In</h1>
-<%= form_with url: registration_login_path do |form| %>
+<%= form_with url: registration_login_path, data: { validate: "login" } do |form| %>
   <div>
     <%= form.label :email %><br>
-    <%= form.text_field :email,class: "form-control", placeholder: "Something@yada.blah"%>
+    <div class="error-message text-danger" data-error-for="email"></div>
+    <%= form.text_field :email,class: "form-control", placeholder: "Something@yada.blah", class: "email-field"%>
+    </div>
+    <div>
     <%= form.label :password %><br>
-    <%= form.password_field :password,class: "form-control", placeholder: "Password" %>
+    <div class="error-message text-danger" data-error-for="password"></div>
+    <%= form.password_field :password,class: "form-control", placeholder: "Password",class: "password-field" %>
   </div>
   <br>
   <%= form.submit "Sign In", class: "btn btn-outline-info btn-lg", style: "color: white;" %>
