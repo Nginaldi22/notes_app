@@ -127,6 +127,37 @@ document.addEventListener("turbo:load", () => {
         }else {
           password_confirmation.classList.remove("field-error");
         }
+        ////////////////////////////////////////////////////////////////
+      } else if (type ==="subject"){
+        const title = form.querySelector(".title-field");
+        if(!title || !title.value.trim()){
+          isValid=false;
+          title?.classList.add("field-error");
+          const errorDiv= form.querySelector("[data-error-for='title']");
+          if(errorDiv) errorDiv.textContent= "Subject must have a name";
+        }else{
+          title.classList.remove("field-error");
+        }
+        //////////////////////////////////////////////////////////
+      }else if(type==="note"){
+        const title = form.querySelector(".title-field");
+        const text = form.querySelector(".text-field");
+        if(!title || !title.value.trim()){
+          isValid=false;
+          title?.classList.add("field-error");
+          const errorDiv= form.querySelector("[data-error-for='title']");
+          if(errorDiv) errorDiv.textContent= "Note must have a name";
+        }else{
+          title.classList.remove("field-error");
+        }
+         if(!text || !text.value.trim()){
+          isValid=false;
+          text?.classList.add("field-error");
+          const errorDiv= form.querySelector("[data-error-for='text']");
+          if(errorDiv) errorDiv.textContent= "Note text must not be blank";
+        }else{
+          text.classList.remove("field-error");
+        }
       }
 
       if (isValid) {
