@@ -1,0 +1,15 @@
+<div class = center>
+  <div class = form>
+<% content_for :title, "New note" %>
+
+<h1>Upload form</h1>
+
+<%= render "form_file_upload", note: @note %>
+
+<br>
+
+<div>
+  <%= link_to "Back to notes", homepage_show_path(current_user.id) %>
+</div>
+</div>
+</div>

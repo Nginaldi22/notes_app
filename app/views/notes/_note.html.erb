@@ -29,5 +29,13 @@
   <%= link_to "New Note", new_note_flashcard_path(note),class: "btn btn-dark",style: "color: white;" %><br>
   <strong>----------------------------------------------------------------------------------</strong>
   <div>Current Files</div>
-
+<% if @note.documents.attached? %>
+  <h3>Uploaded Documents:</h3>
+  <ul>
+    <% @note.documents.each do |doc| %>
+      <li><%= link_to doc.filename, url_for(doc), target: "_blank" %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= link_to "Upload File", upload_form_note_path(@note),class: "btn btn-dark",style: "color: white;" %><br>
 </div>

@@ -1,0 +1,12 @@
+
+<%= form_with(model: @note, url: upload_documents_note_path(@note), method: :patch, local: true, html: { multipart: true }) do |form| %>
+  <div>
+    <%= form.label :documents, "Add documents" %><br>
+    <%= form.file_field :documents, multiple: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Upload", class: "btn btn-info" %>
+  </div>
+<% end %>
+
