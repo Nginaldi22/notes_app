@@ -30,3 +30,7 @@
       font-size: 1.2rem;
       text-align: center;
   }
+  #list-item-black{
+    background-color: #212529 ;
+    color: white;
+  }

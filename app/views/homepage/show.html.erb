@@ -1,5 +1,7 @@
+<% content_for :title, "Homepage" %>
 <h1><%= @homepage.title%></h1>
 <h3>Your current subjects</h3>
+<%if @homepage.notes.present?%>
 <table class="table table-bordered">
     <thead>
         <tr class="table-dark">
@@ -20,4 +22,5 @@
         </tbody>
 <%end%>
 </table>
+<%end%>
 <%= link_to "Make a Subject", new_note_path,class: "btn btn-dark",style: "color: white;"%>
