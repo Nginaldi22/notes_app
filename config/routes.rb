@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get "homepage", to: "homepage#show"
   delete "logout", to: "sessions#destroy"
   get "/check_email", to: "registration#check_email"
+  get "notes/:id/upload_form", to: "notes#upload_form", as: :upload_form_note
+  patch "notes/:id/upload_documents", to: "notes#upload_documents", as: :upload_documents_note
   get "up" => "rails/health#show", as: :rails_health_check
 end

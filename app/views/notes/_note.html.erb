@@ -3,8 +3,8 @@
     <strong>Subject:</strong>
     <%= note.title %>
   </p>
-  <div>Current Notes</div>
-  <%if @note.present?%>
+  <h3>Current Notes</h3>
+  <%if @note.present? && @note.flashcards.present?%>
   <table class="table table-bordered">
     <thead>
         <tr class="table-dark">
@@ -17,7 +17,7 @@
   <%@note.flashcards.each do |flashcard|%>
   </tbody>
   <tr class="table-dark">
-            <th scope = "col" class="text-info"><%=flashcard.title%></th>
+            <th scope = "col"><%=flashcard.title%></th>
             <th scope = "col"><%=link_to "View", [@note,flashcard], class: "text-info"%></th>
             <th scope = "col"><%=link_to "Edit", edit_note_flashcard_path(@note,flashcard),class: "text-info"%></th>
             <th scope = "col"><%=button_to "Delete", [@note,flashcard], method: :delete, class: "btn btn-outline-info",style: "color: white;"%></th>
@@ -27,7 +27,16 @@
   </table>
   <%end%>
   <%= link_to "New Note", new_note_flashcard_path(note),class: "btn btn-dark",style: "color: white;" %><br>
-  <strong>----------------------------------------------------------------------------------</strong>
-  <div>Current Files</div>
-
+  <br>
+  <br>
+<h3>Uploaded Documents:</h3>
+<% if @note.documents.attached? %>
+  <ul class = "list-group list-group-flush">
+    <% @note.documents.each do |doc| %>
+      <li class="list-group-item" id="list-item-black"><%= link_to doc.filename, url_for(doc), target: "_blank", class:"text-info"  %></li>
+    <% end %>
+  </ul>
+<% end %>
+<br>
+<%= link_to "Upload File", upload_form_note_path(@note),class: "btn btn-dark",style: "color: white;" %><br>
 </div>

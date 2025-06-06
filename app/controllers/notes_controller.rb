@@ -51,11 +51,23 @@ class NotesController < ApplicationController
       format.json { head :no_content }
     end
   end
+def upload_form
+  @note = Note.find(params[:id])
+end
+  def upload_documents
+  @note = Note.find(params[:id])
+  if params[:note][:documents]
+    @note.documents.attach(params[:note][:documents])
+    redirect_to note_path(@note), notice: "Documents uploaded!"
+  else
+    redirect_to note_path(@note), alert: "Please select files to upload."
+  end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params.expect(:id))
+      @note = Note.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
