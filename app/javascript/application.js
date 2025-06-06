@@ -16,3 +16,4 @@ if i want to go back and add flash and stuff this is how
     </div>
   <% end %>
 */
+//Adding this line to commit with a wiped database, since i had invalid tables in there from testing stuff
