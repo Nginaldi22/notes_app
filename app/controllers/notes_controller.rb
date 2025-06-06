@@ -64,6 +64,14 @@ end
   end
   end
 
+  def delete_document
+  @note = Note.find(params[:id])
+   document = @note.documents.find { |doc| doc.id.to_s == params[:document_id].to_s }
+  document.purge
+
+  redirect_to note_path(@note), notice: "Document deleted successfully."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
