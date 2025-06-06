@@ -33,7 +33,10 @@
 <% if @note.documents.attached? %>
   <ul class = "list-group list-group-flush">
     <% @note.documents.each do |doc| %>
+    <ul class="list-group list-group-horizontal">
       <li class="list-group-item" id="list-item-black"><%= link_to doc.filename, url_for(doc), target: "_blank", class:"text-info"  %></li>
+     <li class="list-group-item" id="list-item-black"> <%= link_to "Delete", delete_document_note_path(@note, document_id: doc.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-info", style: "color: white;"%></li>
+      </ul>
     <% end %>
   </ul>
 <% end %>

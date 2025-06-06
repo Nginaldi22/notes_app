@@ -67,11 +67,6 @@ document.addEventListener("turbo:load", () => {
          name?.classList.add("field-error");
           const errorDiv = form.querySelector("[data-error-for='name']");
           if (errorDiv) errorDiv.textContent = "Name is required.";
-        }else if (name.value.includes(' ')){
-          isValid = false;
-         name?.classList.add("field-error");
-          const errorDiv = form.querySelector("[data-error-for='name']");
-          if (errorDiv) errorDiv.textContent = "Name no spaces allowed.";
         }else {
           name.classList.remove("field-error");
         }
@@ -86,6 +81,11 @@ document.addEventListener("turbo:load", () => {
           email?.classList.add("field-error");
           const errorDiv = form.querySelector("[data-error-for='email']");
           if (errorDiv) errorDiv.textContent = "Email is not in valid format";
+        }else if (email.value.includes(' ')){
+          isValid = false;
+         name?.classList.add("field-error");
+          const errorDiv = form.querySelector("[data-error-for='email']");
+          if (errorDiv) errorDiv.textContent = "Email has no spaces allowed.";
         }else {   //see if email is present in in db
             try {
         const response = await fetch(`/check_email?email=${encodeURIComponent(email.value.trim())}`);

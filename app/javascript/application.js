@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "form_validation"
+import * as Rails from "@rails/ujs"
 /*
 if i want to go back and add flash and stuff this is how
 <% if note.errors.any? %>

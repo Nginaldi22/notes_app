@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get "/check_email", to: "registration#check_email"
   get "notes/:id/upload_form", to: "notes#upload_form", as: :upload_form_note
   patch "notes/:id/upload_documents", to: "notes#upload_documents", as: :upload_documents_note
+  delete "notes/:id/delete_document", to: "notes#delete_document", as: :delete_document_note
   get "up" => "rails/health#show", as: :rails_health_check
 end
